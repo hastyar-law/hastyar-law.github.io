@@ -3,127 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هەستیار ڕزگار - Hastyar Rizgar</title>
+    <title>Hastyar Rizgar | پڕۆفایلی فەرمی</title>
     <style>
-        :root {
-            --primary: #d32f2f;
-            --dark: #0f172a;
-            --text: #334155;
-            --bg: #f8fafc;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap');
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: 'Noto Sans Arabic', sans-serif;
+            background-color: #101820; /* ڕەنگی ڕەشی مۆدێرن */
+            color: #e2e8f0;
+            margin: 0; padding: 0;
+        }
+
+        .main-wrapper {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* بەشی سەرەوە (Header) */
+        .cover-photo {
+            height: 120px;
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .profile-info {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 0 0 15px 15px;
             text-align: center;
-        }
-
-        .container {
-            background: white;
-            padding: 40px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 90%;
-            margin: 20px;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
             margin-bottom: 20px;
         }
 
-        h1 {
-            margin: 10px 0;
-            color: var(--dark);
-            font-size: 1.8rem;
+        .profile-img {
+            width: 110px; height: 110px;
+            border-radius: 50%;
+            border: 4px solid #1e293b;
+            margin-top: -70px;
+            background: #eee;
         }
 
-        .bio {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: #64748b;
-        }
-
-        .search-box {
-            background: #fff5f5;
+        /* ناساندنی کورت بە خاڵبەندی */
+        .intro-box {
+            background: #1e293b;
             padding: 20px;
             border-radius: 15px;
-            border: 2px dashed var(--primary);
-            margin-top: 20px;
+            margin-bottom: 15px;
+            text-align: right;
         }
 
-        .search-box h3 {
-            color: var(--primary);
-            margin-top: 0;
-            font-size: 1.2rem;
-        }
+        .intro-box h2 { font-size: 1.1rem; color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        .intro-list { list-style: none; padding: 0; margin: 10px 0; }
+        .intro-list li { margin: 8px 0; font-size: 0.95rem; display: flex; align-items: center; }
+        .intro-list li::before { content: "•"; color: #38bdf8; font-weight: bold; margin-left: 10px; }
 
-        .username-tag {
-            background: var(--primary);
+        /* بەشی پیشە (خوێندکار و جوتیار) */
+        .job-tag {
+            background: #0ea5e9;
             color: white;
-            font-size: 1.3rem;
-            font-weight: bold;
-            padding: 8px 20px;
-            border-radius: 8px;
-            display: inline-block;
-            margin: 10px 0;
-            letter-spacing: 1px;
-        }
-
-        .footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #94a3b8;
-        }
-
-        /* هێماکانی سۆشیاڵ میدیا بۆ جوانی */
-        .social-icons {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+            padding: 5px 15px;
+            border-radius: 20px;
             font-size: 0.9rem;
-            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
         }
+
+        /* بەشە جیاوازەکانی پۆست (Feed) */
+        .post-card {
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+
+        .post-label {
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .label-poem { background: #8b5cf6; color: white; } /* وەنەوشەیی بۆ هۆنراوە */
+        .label-project { background: #10b981; color: white; } /* سەوز بۆ پڕۆژە */
+        .label-idea { background: #f59e0b; color: white; } /* زەرد بۆ بیرۆکە */
+
+        .post-content { font-size: 1rem; line-height: 1.7; white-space: pre-line; }
+
+        /* بەشی کۆتایی (Search) */
+        .search-footer {
+            background: #ef4444;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .search-name { font-size: 1.3rem; font-weight: bold; display: block; margin-top: 10px; text-decoration: underline; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <img src="img.png" alt="Hastyar Rizgar" class="profile-img">
-    
-    <h1>هەستیار ڕزگار</h1>
-    <p class="bio">
-    
-     خوێندکار | ئەندامی پڕۆژەی <strong>"  پێنجوێن شاری فێربوون"</strong> <br>
-        نووسەری زیاتر لە ٦٠ هۆنراوە
-    </p>
-
-    <div class="search-box">
-        <h3>🔍 سێرچ بۆ کارەکانم بکەن</h3>
-        <p>بۆ بینینی ڤیدیۆکان و کارەکانم لە یوتیووب و فەیسبووک، گەڕان بکە بۆ:</p>
-        <div class="username-tag">Hastyar Rizgar</div>
-        <div class="social-icons">
-            <span style="color: #ff0000;">YouTube</span>
-            <span style="color: #1877f2;">Facebook</span>
+<div class="main-wrapper">
+    <div class="cover-photo"></div>
+    <div class="profile-info">
+        <img src="img.png" alt="Hastyar" class="profile-img">
+        <h1>هەستیار ڕزگار</h1>
+        <div>
+            <span class="job-tag">🎓 خوێندکار</span>
+            <span class="job-tag">🌱 جوتیار</span>
         </div>
     </div>
 
-    <div class="footer">
+    <div class="intro-box">
+        <h2>دەربارەی من</h2>
+        <ul class="intro-list">
+            <li>تەمەن: [تەمەنی خۆت بنووسە] ساڵ</li>
+            <li>شوێنی نیشتەجێبوون: پێنجوێن</li>
+            <li>بڕوانامە: [بڕوانامەکەت بنووسە]</li>
+            <li>ئەندام لە پڕۆژەی پێنجوێن شاری فێربوون</li>
+        </ul>
+    </div>
+
+    <div class="post-card">
+        <span class="post-label label-poem">✒️ هۆنراوە</span>
+        <div class="post-content">
+            لێرە یەکێک لە هۆنراوەکانت بنووسە...
+            نموونە:
+            لە ناو دڵی پێنجوێندا، هۆنراوە دەچێنم
+            خەمی خاک و نیشتمان، بە وشە دەهێنم
+        </div>
+    </div>
+
+    <div class="post-card">
+        <span class="post-label label-project">🚀 پڕۆژە</span>
+        <div class="post-content">
+            لێرە باسی ئەو پڕۆژانە بکە کە کاری تێدا دەکەیت یان ئەنجامت داون.
+        </div>
+    </div>
+
+    <div class="post-card">
+        <span class="post-label label-idea">💡 بیرۆکە</span>
+        <div class="post-content">
+            بیرۆکەیەکی نوێ یان سەرنجێکی تایبەت لێرە بنووسە.
+        </div>
+    </div>
+
+    <div class="search-footer">
+        تکایە بۆ زانیاری زیاتر و بینینی کارەکانم، لە هەموو پلاتفۆرمەکان بگەڕێن بۆ:
+        <span class="search-name">Hastyar Rzgar</span>
+    </div>
+
+    <div style="text-align: center; padding: 20px; font-size: 0.8rem; color: #64748b;">
         © 2026 هەستیار ڕزگار - هەموو مافەکان پارێزراوە
     </div>
 </div>
